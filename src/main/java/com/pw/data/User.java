@@ -21,9 +21,6 @@ public class User implements Serializable {
     @Column(name="username", unique = true, nullable = false)
     private String username;
 
-    @Column(name="salt", unique = false, nullable = false)
-    private byte[] salt;
-
     @Column(name="hash", unique = false, nullable = false)
     private String passwordHash;
 
@@ -49,14 +46,6 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public byte[] getSalt() {
-        return salt;
-    }
-
-    public void setSalt(byte[] salt) {
-        this.salt = salt;
     }
 
     public String getPasswordHash() {

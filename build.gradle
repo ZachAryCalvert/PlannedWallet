@@ -28,6 +28,12 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
+
+    compile('org.apache.commons:commons-lang3:3.5')
+
+    // Password hashing
+    compile('org.mindrot:jbcrypt:0.4')
+
     testCompile("junit:junit")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

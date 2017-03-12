@@ -1,0 +1,6 @@
+
+user:
+  password.min.length: 8
+  init:
+    username: admin
+    password: plannedWalletStart

@@ -12,7 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {
         "com.pw.app.conf",
-        "com.pw.rest"
+        "com.pw.rest",
+        "com.pw.service"
 })
 @SpringBootApplication
 public class Application {
