@@ -1,12 +1,17 @@
 package com.pw.data;
 
+import com.pw.exception.UsernameLengthTooShort;
+import org.apache.commons.lang3.StringUtils;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by Zach on 3/11/17.
+ * A Planned Wallet user entity.
  */
-@Table(name = "pw_user")
+@Table(name = "pw_user",
+    indexes = {@Index(name = "pwidx_user_username", columnList = "username", unique = true)}
+)
 @Entity
 public class User implements Serializable {
 
@@ -18,6 +23,9 @@ public class User implements Serializable {
 
     private String guid;
 
+    /**
+     * Unique username, must be case insensitive.
+     */
     @Column(name="username", unique = true, nullable = false)
     private String username;
 
@@ -45,6 +53,10 @@ public class User implements Serializable {
     }
 
     public void setUsername(String username) {
+        if (StringUtils.isEmpty(username)) {
+            throw new UsernameLengthTooShort(String.format("Username '%s' too length", username));
+        }
+
         this.username = username;
     }
 
